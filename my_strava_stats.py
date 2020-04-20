@@ -82,4 +82,4 @@ if __name__ == "__main__":
     year_list = list(reversed(range(int(config_dict["year_start"]), current_year + 1)))
     getYearOverYear(year_list)
     print("\n#######################################################################\n")
-    getStatFullYear([2020, 2019, 2018, 2017, 2016])
+    getStatFullYear(year_list)

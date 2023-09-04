@@ -1,11 +1,5 @@
 # Strava my stats
 
-## Prerequisite installation
-
-```shell
-$ sudo pip3 install pystrava
-```
-
 ## Configuration
 
 - Maintain the Strava credentials in `.credentials.properties`
@@ -15,6 +9,10 @@ $ sudo pip3 install pystrava
 
 ```shell
 $ python3 my_strava_stats.py
+```
+
+```shell
+$ python3 longchamp.py
 ```
 
 ## Links

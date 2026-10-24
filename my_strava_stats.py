@@ -23,7 +23,10 @@ def get_activities(start, end, full=False):
     resp = requests.get("https://www.strava.com/api/v3/athlete/activities",
                         params=parameters, headers=headers, timeout=300)
     activities = resp.json()
-    
+
+    if not isinstance(activities, list):
+        raise RuntimeError(f"Strava API error: {activities}")
+
     if len(activities) == 200:
         print("Warning Missing Activities")
     #activities = client.get_activities(before=end, after=start)

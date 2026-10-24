@@ -1,1 +1,7 @@
 .credentials.properties
+.venv/
+__pycache__/
+api/__pycache__/
+api/.cache/
+ui/node_modules/
+ui/dist/

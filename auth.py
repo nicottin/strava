@@ -1,9 +1,11 @@
 
+import os
 import requests
 import configparser
 
+_dir = os.path.dirname(os.path.abspath(__file__))
 config = configparser.RawConfigParser()
-config.read('.credentials.properties')
+config.read(os.path.join(_dir, '.credentials.properties'))
 cred_dict = dict(config.items('CREDENTIALS'))
 
 def init_auth():
@@ -17,7 +19,11 @@ def init_auth():
         "grant_type": "authorization_code"
     }
 
-    resp  = requests.post("https://www.strava.com/api/v3/oauth/token", params=parameters)
+    resp = requests.post(
+        "https://www.strava.com/api/v3/oauth/token",
+        data=parameters,
+        timeout=30,
+    )
     data = resp.json()
     return data
 
@@ -28,11 +34,13 @@ def refresh_token():
         "grant_type": "refresh_token",
         "refresh_token": cred_dict["refresh_token"]
     }
-    resp  = requests.post("https://www.strava.com/api/v3/oauth/token", params=parameters)
+    resp = requests.post(
+        "https://www.strava.com/api/v3/oauth/token",
+        data=parameters,
+        timeout=30,
+    )
     data = resp.json()
     return data["access_token"]
 
 if __name__ == "__main__":
-    # print(init_auth())
-    token = refresh_token()
-    print(token)
+    print(init_auth())

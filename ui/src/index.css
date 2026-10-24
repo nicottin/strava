@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+:root {
+  --strava-orange: #fc4c02;
+}
+
+body {
+  margin: 0;
+  background: #111827;
+  color: #f9fafb;
+  font-family: system-ui, -apple-system, sans-serif;
+}
